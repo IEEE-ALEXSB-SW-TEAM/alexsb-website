@@ -12,7 +12,6 @@ function App() {
   ];
   return (
     <div className="App">
-      <h1>lol IEEE</h1>
       <ImageSlider slides={slides} />
     </div>
   );
