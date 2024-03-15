@@ -17,7 +17,7 @@ function ImageSlider({ slides }) {
   
   return (
     <slider className="slider-container">
-      <Slider {...settings} className="slider">
+      <Slider {...settings}>
         {slides.map((slide, slideIndex) => (
           <div key={slideIndex}>
             <img src={slide.url} alt={slide.title}/>
