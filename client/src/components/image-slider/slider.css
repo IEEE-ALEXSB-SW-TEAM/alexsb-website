@@ -1,0 +1,17 @@
+.slick-slider {
+    width: 100%;
+  }
+  
+  /* Set the height of the slider to half of the viewport height */
+  .slick-slider img {
+    height: 50vh; /* 50% of viewport height */
+    width: 100%; /* Ensure image covers full width */
+  }
+
+  .slick-dots {
+    position: absolute;
+    bottom: auto; /* Remove the default bottom positioning */
+    bottom: 10px; /* Adjust top position as needed */
+    width: 100%;
+    text-align: center; /* Center dots horizontally */
+  }
