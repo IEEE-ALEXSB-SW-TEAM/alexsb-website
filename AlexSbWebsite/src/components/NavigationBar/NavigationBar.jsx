@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa'
-import logo from 'C:\\Users\\Tamim\\OneDrive - Alexandria University\\Desktop\\website_test\\AlexSbWebsite\\src\\assets\\AlexSBLogo.png'
+import logo from '../../assets/AlexSBLogo.png'
 import './NavigationBar.css'
 
 function NavigationBar(){
