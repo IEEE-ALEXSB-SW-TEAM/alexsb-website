@@ -1,4 +1,4 @@
-import NavBar from '../components/NavigationBar/NavigationBar.jsx';
+import NavBar from '../components/NavigationBar/NavigationBar.js';
 function home(){
     return(
         <div>

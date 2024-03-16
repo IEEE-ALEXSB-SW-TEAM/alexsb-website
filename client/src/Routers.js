@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './views/home.jsx';
-import Events from './views/events.jsx';
-import About from './views/about.jsx';
+import Home from './views/home.js';
+import Events from './views/events.js';
+import About from './views/about.js';
 
 function Routers() {
   return (
