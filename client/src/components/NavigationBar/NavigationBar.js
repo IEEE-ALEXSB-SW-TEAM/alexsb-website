@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa'
-import logo from '../../assets/AlexSBLogo.png'
+import logo from '../../assets/AlexSBLogo.svg'
 import './NavigationBar.css'
 
 function NavigationBar() {
@@ -26,8 +26,8 @@ function NavigationBar() {
             <nav className='navbar'>
                 <img src={logo} alt='logo' />
                 <div className='hamburger' onClick={handleClick}>
-                    {click ? (<FaTimes size={30} style={{ color: '#000000' }} />)
-                        : (<FaBars size={30} style={{ color: '#000000' }} />)}
+                    {click ? (<FaTimes size={30} style={{ color: '#FFFFFF'}}/>)
+                        : (<FaBars size={30} style={{ color: '#FFFFFF' }} />)}
                 </div>
                 <ul className={click ? "nav-menu active" : "nav-menu"}>
                     <li className='nav-item'>
