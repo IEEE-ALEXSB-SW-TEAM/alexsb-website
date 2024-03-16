@@ -2,7 +2,44 @@ import NavBar from '../components/NavigationBar/NavigationBar.jsx';
 function home(){
     return(
         <div>
-        <NavBar />
+        <div><NavBar /></div>
+        <br/>
+        <br/>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <h1> Home Page </h1>
         <h1> Home Page </h1>
         </div>
     );
