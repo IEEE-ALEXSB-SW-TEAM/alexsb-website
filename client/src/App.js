@@ -1,6 +1,6 @@
 import './App.css';
-import ImageSlider from './components/image-slider/ImageSlider';
 
+import Routers from './Routers.js'
 
 function App() {
   const slides = [
@@ -12,7 +12,7 @@ function App() {
   ];
   return (
     <div className="App">
-      <ImageSlider slides={slides} />
+      <Routers />
     </div>
   );
 }
