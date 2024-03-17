@@ -1,4 +1,5 @@
 import NavBar from '../components/NavigationBar/NavigationBar.js';
+import Footer from '../components/footer/footer.js';
 import ImageSlider from '../components/image-slider/ImageSlider';
 
 function home() {
@@ -51,6 +52,7 @@ function home() {
             <h1> Home Page </h1>
             <h1> Home Page </h1>
             <h1> Home Page </h1>
+            <div><Footer/></div>
         </div>
     );
 }
