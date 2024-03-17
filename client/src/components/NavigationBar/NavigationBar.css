@@ -1,20 +1,20 @@
 .header {
     position: fixed;
-    height: 90px;
+    height: 70px;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1;
     transition: .3s ease-in;
     overflow: visible;
-    background-color: black;
-    /* background-color: transparent; */
+    background-color: rgba(0, 0, 0, 0);
+
 
 }
 
 .header-bg{
 
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(4, 39, 69, 0.4);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
@@ -59,12 +59,11 @@
 @media screen and (max-width:940px) {
     .header {
         max-width: 100%;
-        background-color: black;
-        /* background-color: transparent; */
+        background-color: rgba(0, 0, 0, 0);
     }
     
     .header-bg{
-        background-color: rgba(0, 0, 0, 0.4);
+        background-color: rgba(4, 39, 69, 0.4);
         -webkit-backdrop-filter: blur(5px);
         backdrop-filter: blur(5px);
     }
@@ -80,11 +79,8 @@
     .nav-menu {
         position: fixed;
         right: -120%;
-        top: 90px;
+        top: 70px;
         flex-direction: column;
-        background-color: rgba(0, 0, 0, 0.4);
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
         width: 50%;
         height: 90vh;
         z-index: 999;
@@ -92,9 +88,12 @@
         transition: .3s;
         list-style-type: none;
     }
-
+    
     .nav-menu.active {
         right: 0;
+        background-color: rgba(4, 39, 69, 0.4);
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
         list-style-type: none;
     }
 
