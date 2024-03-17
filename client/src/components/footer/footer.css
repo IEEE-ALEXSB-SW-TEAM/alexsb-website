@@ -1,0 +1,116 @@
+*{width: 100%;}
+/* Reset some default margin and padding */
+body, h1, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic styling for the footer */
+.footer {
+    background-color: #002855;
+    color: #fff;
+    padding-top:30px;
+    flex-direction: column;
+    display: flex;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.about-content {
+    flex: 1;
+    margin-right: 20px;
+    font-size: small;
+}
+.footer-section {
+    flex: 1;
+    margin-right: 30px;
+}
+
+.footer-section.about img {
+    margin-top: 5%;
+    margin-bottom: 20%;
+    margin-left: 20vh;
+    width: 40vh; /* Set the width of the image */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Style for the social media icons */
+.socials img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+/* Style for the links in the Quick Links section */
+.links ul {
+    list-style-type: none;
+    color: #fff;
+    padding: 0;
+}
+
+.links ul li {
+    margin-bottom: 5px;
+    color: #fff;
+}
+.links ul a {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.email-link {
+    color: white; /* Change the color of the link text to white */
+    text-decoration: none;
+  }
+  
+.footer-bottom {
+    border-top: 2px solid #fff; 
+    background-color:  #002855;
+    color: #ccc;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 16px; 
+    flex: 1;
+}
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    @media (max-width: 789px) {
+        .footer-section {
+            flex: 1;
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
+        .links {
+            margin-left: 0;
+        }
+        .footer-section.about,
+        .footer-section.links,
+        .footer-section.contact-us {
+            flex: 0 0 100%; /* Make each section take full width */
+        }
+        .footer-section.links,
+        .footer-section.contact-us {
+            margin-top: 0; /* Remove margin from top of these sections */
+        }
+        .footer-content {
+            flex-direction: row; /* Change direction to row */
+            flex-wrap: wrap; /* Allow items to wrap */
+        }
+    }
+    
+}
+
