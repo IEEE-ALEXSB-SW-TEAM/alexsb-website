@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './slider.css';
+import logo from '../../assets/AlexSBLogo.png'
 
 function ImageSlider({ slides }) {
       const settings = {
@@ -11,8 +12,8 @@ function ImageSlider({ slides }) {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: true, // Enable autoplay
-        autoplaySpeed: 3000, // Set autoplay interval (milliseconds)
+        autoplay: true,
+        autoplaySpeed: 3000,
       };
   
   return (
@@ -25,7 +26,7 @@ function ImageSlider({ slides }) {
         ))}
       </Slider>
       <text className="text">
-        <img src="http://localhost:3000/images/ieee_bg.png" width="250px"></img>
+        <img src={logo} width="250px" alt="ieee logo"></img>
         <h1>IEEE-AlexSB</h1>
         <h1>+22 years of innovation and development</h1>
       </text>
