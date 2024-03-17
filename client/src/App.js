@@ -1,10 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
+import Routers from './Routers.js'
 
 function App() {
   return (
     <div className="App">
-      lol IEEE
+      <Routers />
     </div>
   );
 }
