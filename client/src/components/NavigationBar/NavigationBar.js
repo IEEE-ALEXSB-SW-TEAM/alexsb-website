@@ -24,11 +24,11 @@ function NavigationBar() {
     return (
         <div className={Transparent ? 'header' : 'header header-bg'}>
             <nav className='navbar'>
-                <img src={logo} alt='logo' />
-                <div className='hamburger' onClick={handleClick}>
-                    {click ? (<FaTimes size={30} style={{ color: '#FFFFFF'}}/>)
-                        : (<FaBars size={30} style={{ color: '#FFFFFF' }} />)}
-                </div>
+                <div><img src={logo} alt='logo' /></div>
+                    <div className='hamburger' onClick={handleClick}>
+                        {click ? (<FaTimes size={30} style={{ color: '#FFFFFF'}}/>)
+                            : (<FaBars size={30} style={{ color: '#FFFFFF' }} />)}
+                    </div>
                 <ul className={click ? "nav-menu active" : "nav-menu"}>
                     <li className='nav-item'>
                         <a href='/' onClick={closeMenu}>Home</a>

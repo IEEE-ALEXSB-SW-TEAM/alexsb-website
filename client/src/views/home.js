@@ -4,11 +4,11 @@ import ImageSlider from '../components/image-slider/ImageSlider';
 
 function home() {
     const slides = [
-        { url: "http://192.168.1.14:3000/images/image-1.jpg", title: "beach" },
-        { url: "http://192.168.1.14:3000/images/image-2.jpg", title: "boat" },
-        { url: "http://192.168.1.14:3000/images/image-3.jpg", title: "forest" },
-        { url: "http://192.168.1.14:3000/images/image-4.jpg", title: "city" },
-        { url: "http://192.168.1.14:3000/images/image-5.jpg", title: "italy" },
+        { url: "./images/image-1.jpg", title: "beach" },
+        { url: "./images/image-2.jpg", title: "boat" },
+        { url: "./images/image-3.jpg", title: "forest" },
+        { url: "./images/image-4.jpg", title: "city" },
+        { url: "./images/image-5.jpg", title: "italy" },
     ];
     return(
         <div>
