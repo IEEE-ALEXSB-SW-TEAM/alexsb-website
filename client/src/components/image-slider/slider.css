@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.shadow {
+    text-shadow: 0px 0px 10px #000000;
+}
+
 .slider-container {
     position: relative;
     width: 100%;
