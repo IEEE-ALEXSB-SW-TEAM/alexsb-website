@@ -59,7 +59,8 @@
 }
 
 .hamburger {
-    width : auto;
+    width: auto;
+    margin: 0 2rem 0 0;
     display: none;
 }
 
