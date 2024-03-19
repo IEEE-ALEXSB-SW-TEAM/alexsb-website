@@ -31,13 +31,13 @@ function NavigationBar() {
                     </div>
                 <ul className={click ? "nav-menu active" : "nav-menu"}>
                     <li className='nav-item'>
-                        <a href='/' onClick={closeMenu}>Home</a>
+                        <a href='/' onClick={closeMenu}><b>Home</b></a>
                     </li>
                     <li className='nav-item'>
-                        <a href='/about' onClick={closeMenu}>About</a>
+                        <a href='/about' onClick={closeMenu}><b>About</b></a>
                     </li>
                     <li className='nav-item'>
-                        <a href='/events' onClick={closeMenu}>Events</a>
+                        <a href='/events' onClick={closeMenu}><b>Events</b></a>
                     </li>
                 </ul>
             </nav>
