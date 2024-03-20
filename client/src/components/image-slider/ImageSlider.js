@@ -21,17 +21,17 @@ function ImageSlider({ slides }) {
       <Slider {...settings}>
         {slides.map((slide, slideIndex) => (
           <div key={slideIndex}>
-            <img src={slide.url} alt={slide.title}/>
+            <img src={slide.url} alt={slide.title} className="slider-image" />
           </div>
         ))}
       </Slider>
       <text className="text">
-        <img src={logo} width="250px" alt="ieee logo"></img>
-        <h1>IEEE-AlexSB</h1>
-        <h1>+22 years of innovation and development</h1>
+        <img src={logo} width="250px" alt="ieee logo" />
+        <h1 className="shadow">IEEE-AlexSB</h1>
+        <h1 className="shadow">+22 years of innovation and development</h1>
       </text>
-      </slider>
-      );
+    </slider>
+  );
 };
 
 export default ImageSlider;

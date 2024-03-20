@@ -1,14 +1,28 @@
-*{
+* {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
 }
+
+.slider-image {
+    width: 100%;
+    object-fit: cover;
+}
+
+.shadow {
+    text-shadow: 0px 0px 10px #000000;
+}
+
 .slider-container {
     position: relative;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: content-box;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
 }
 
 .text {
@@ -20,22 +34,50 @@
     padding: 20px;
     border-radius: 15px;
 }
+
 .slick-slider {
     width: 100%;
 }
-  
+
 /* Set the height of the slider to half of the viewport height */
 .slick-slider img {
-height: 75vh;
-width: 100%;
+    height: 75vh;
+    width: 100%;
 }
 
 .slick-dots {
-position: absolute;
-bottom: auto; /* Remove the default bottom positioning */
-bottom: 10px; /* Adjust top position as needed */
-width: 100%;
-text-align: center; /* Center dots horizontally */
+    position: absolute;
+    bottom: auto;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.slick-dots li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.slick-dots li button {
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 10px;
+    height: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 50%;
+    background: #b0b0b0;
+    text-indent: -9999px;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.6);
+}
+
+.slick-dots li.slick-active button {
+    background: #fff;
+    opacity: 1;
 }
 
 /* Responsive Styling */
