@@ -2,5 +2,23 @@
     background-color: #3040cb;
     display: flex;
     justify-content: center;
-    
+    margin: 0;
+    display: grid;
+    place-content: center;
+    width: 400px; /* Set width to 200 pixels */
+    height: 500px; /* Set height to 300 pixels */
+}
+
+.card img{
+    width: 200px; /* Set your desired width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px;
+    transition: transform 0.3s ease; /* Add smooth transition */
+    opacity: 0.5;
+    transition: opacity 0.3s ease; /* Add smooth transition */
+}
+
+.card img:hover{
+    opacity: 1; /* Set opacity to 1 on hover */
+    transform: scale(1.1); /* Scale the image up by 10% */
 }
