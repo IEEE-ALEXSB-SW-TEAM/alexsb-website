@@ -1,6 +1,7 @@
 import NavBar from '../components/NavigationBar/NavigationBar.js';
 import Footer from '../components/footer/footer.js';
 import ImageSlider from '../components/image-slider/ImageSlider';
+import CardComponent from '../components/CardComponent/CardComponent.js';
 
 function home() {
     const slides = [
