@@ -1,18 +1,14 @@
-import NavBar from '../components/NavigationBar/NavigationBar.js';
-import Footer from '../components/footer/footer.js';
 import ImageSlider from '../components/image-slider/ImageSlider';
 
 function home() {
     const slides = [
-        { url: "./images/image-1.jpg", title: "beach" },
-        { url: "./images/image-2.jpg", title: "boat" },
-        { url: "./images/image-3.jpg", title: "forest" },
-        { url: "./images/image-4.jpg", title: "city" },
-        { url: "./images/image-5.jpg", title: "italy" },
+        { url: "./images/ieee-1.jpg", title: "valeo visit all" },
+        { url: "./images/ieee-2.jpg", title: "valeo visit IEEE members" },
+        { url: "./images/ieee-3.jpg", title: "backend boot camp" },
+        { url: "./images/ieee-4.jpg", title: "tivac boot camp" },
     ];
     return(
         <div>
-            <div><NavBar /></div>
             <ImageSlider slides={slides} />
             <br/>
             <br/>
@@ -52,7 +48,6 @@ function home() {
             <h1> Home Page </h1>
             <h1> Home Page </h1>
             <h1> Home Page </h1>
-            <div><Footer/></div>
         </div>
     );
 }
