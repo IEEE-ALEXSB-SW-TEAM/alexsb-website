@@ -1,4 +1,5 @@
 import ImageSlider from '../components/image-slider/ImageSlider';
+import PurposeComponent from '../components/purpose/PurposeComponent';
 
 function home() {
     const slides = [
@@ -10,22 +11,9 @@ function home() {
     return(
         <div>
             <ImageSlider slides={slides} />
+            <PurposeComponent />
             <br/>
             <br/>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
             <h1> Home Page </h1>
             <h1> Home Page </h1>
             <h1> Home Page </h1>
