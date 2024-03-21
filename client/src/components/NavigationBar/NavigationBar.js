@@ -45,7 +45,7 @@ function NavigationBar() {
                 <ul className={click ? "nav-menu active" : "nav-menu"}>
                     <div className='tabs'>
                         <li className='nav-item'>
-                            <a href='/' className = "button" onClick={closeMenu}><b>Home</b></a>
+                            <a href='/' className = "button" onClick={closeMenu}><b>HOME</b></a>
                         </li>
                         <li className='nav-item'>
                             <a href='/activities' className = "button" onClick={closeMenu}><b>Activities</b></a>

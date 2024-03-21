@@ -4,18 +4,23 @@
     width: 100%;
     margin: 0;
     z-index: 1;
-    transition: .3s ease-in;
+    transition: .5s ease-in;
     overflow: visible;
-    background-color: transparent
+    background-color: transparent;
+    /* font-size: 15px; */
+}
 
-
+b{
+    font-family: "Work Sans";
+    font-weight: 300;
+    font-size: 13px;
 }
 
 .header-bg {
 
     background-color: #375EEA;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    /* -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px); */
 }
 
 .navbar {
@@ -45,6 +50,7 @@
 .nav-menu .tabs {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-right: 3rem;
 }
 
@@ -56,17 +62,16 @@
 
 .nav-item {
     /* width: fit-content; */
-    font-size: 20px;
-    padding: 0 1rem;
-    /* text-shadow: 0px 0px 15px rgb(0, 0, 0, 1); */
+    padding: 0 0 0 12px;
+    /* text-shadow: 0px 0px 15px rgb(0, 0, 0, 1);
     font-family: "Work Sans", sans-serif;
-    /* font-optical-sizing: 12px; */
-    /* font-weight: 100; */
-    /* font-style: normal; */
+    font-optical-sizing: 12px;
+    font-weight: 100;
+    font-style: normal; */
 }
 
 .button {
-    padding: 15px 25px;
+    padding: 12px 25px;
     /* background-color: transparent; */
     border: none;
     text-align: center;
@@ -75,95 +80,100 @@
     color: white;
     text-decoration: inherit;
     cursor: pointer;
-    border-radius: 20px;
-    border: 2px solid transparent;
+    border-radius: 8px;
+    border:  1.5px solid transparent;
 }
 
 .button-login {
     background-color: transparent;
-    border: 2px solid whitesmoke;
+    border:  1.5px solid whitesmoke;
 }
 
 .button-join {
     background-color: #F99417;
-    border: 2px solid #F99417;
+    border:  1.5px solid #F99417;
 }
 
 .button:hover{
-    border: 2px solid white;
+    border:  1.5px solid white;
 }
 
 .button-login:hover {
     background-color: #334daa;
-    border: 2px solid #334daa;
+    border:  1.5px solid #334daa;
 }
 
 .button-join:hover {
     background-color: #ff7700;
-    border: 2px solid #ffffff;
+    border: 1.5px solid #ffffff;
     color: whitesmoke;
 }
 
-/* .navbar a {
-    font-weight: 500;
-    color: white;
-    text-decoration: inherit;
-    transition: color 0.3s;
-}
-
-.navbar a:hover {
-    color: #0152a1;
-    border-bottom: 3px solid #0152a1;
-} */
-
 .hamburger {
     width: auto;
-    margin: 0 2rem 0 0;
+    margin: 0 1rem 0 0;
     display: none;
     filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 1));
 }
 
 @media screen and (max-width:940px) {
-    .header {
+    /* .header {
         max-width: 100%;
         background-color: rgba(0, 0, 0, 0);
-    }
-
+    } */
+    /*
     .header-bg {
-        background-color: rgba(4, 39, 69, 0.4);
+        background-color: #375EEA;
         -webkit-backdrop-filter: blur(5px);
         backdrop-filter: blur(5px);
-    }
+    } */
 
     .hamburger {
         display: block;
     }
 
+    .nav-menu .tabs {
+        flex-direction: column;
+        padding: 0;
+    }
+    
+    .nav-menu .register {
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+
     .nav-menu {
         position: fixed;
-        right: -120%;
-        top: 70px;
+        top: -120%;
+        /* top: 70px; */
         flex-direction: column;
-        width: 50%;
+        width: 100%;
         height: 90vh;
         z-index: 999;
+        left: 0;
         text-align: center;
-        transition: .3s;
+        transition: .5s;
         list-style-type: none;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
     }
 
     .nav-menu.active {
         display: flex;
         justify-content: space-around;
-        right: 0;
-        background-color: rgba(4, 39, 69, 0.4);
-        -webkit-backdrop-filter: blur(5px);
+        top: 70px;
+        height: 50%;
+        left: 0;
+        background: rgb(55,94,234);
+        background: linear-gradient(180deg, rgba(55,94,234,1) 0%, rgba(55,94,234,0.813958859911152) 54%, rgba(55,94,234,0.3881885517879027) 100%);        -webkit-backdrop-filter: blur(5px);
+        transition: .6s;
         backdrop-filter: blur(5px);
         list-style-type: none;
     }
 
     .nav-item {
         margin: 1.5rem 0;
+        padding: 0;
     }
 
     .header .navbar img {
