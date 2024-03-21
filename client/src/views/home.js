@@ -1,5 +1,6 @@
 import ImageSlider from '../components/image-slider/ImageSlider';
 import PurposeComponent from '../components/purpose/PurposeComponent';
+import OurBoardSection from '../components/Board/ourBoard';
 
 function home() {
     const slides = [
@@ -36,6 +37,7 @@ function home() {
             <h1> Home Page </h1>
             <h1> Home Page </h1>
             <h1> Home Page </h1>
+            <OurBoardSection />
         </div>
     );
 }
