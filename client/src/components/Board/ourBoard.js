@@ -47,7 +47,7 @@ class OurBoardSection extends Component {
                 <section className="our-board-section">
                     <h2 className="section-title">OUR BOARD</h2>
                     {/* Slider component */}
-                    <Slider {...settings} className="slider-container">
+                    <Slider {...settings} className="board-slider-container">
                         {/* Mapping through board members and rendering BoardCard component */}
                         {boardMembers.map((member, index) => (
                             <BoardCard key={index} {...member} />
