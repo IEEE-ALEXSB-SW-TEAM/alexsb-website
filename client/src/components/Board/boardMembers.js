@@ -1,4 +1,9 @@
 import noface from "../../assets/no-face.png";
+
+/**
+ * Array containing information about board members.
+ * @type {Array<Object>}
+ */
 const boardMembers = [
     {
       name: "ABDELRAHMAN MAMDOUH",
@@ -40,8 +45,6 @@ const boardMembers = [
       role: "ACTIVITY MEMBER",
       imageUrl: noface,
     },
+];
 
-  ];
-  
-  export default boardMembers;
-  
+export default boardMembers;

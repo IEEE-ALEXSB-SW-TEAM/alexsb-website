@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 
+/**
+ * Represents a board member card.
+ * @class
+ */
 class BoardCard extends Component {
+  /**
+   * Renders the board member card.
+   * @returns {JSX.Element} JSX representing the board member card.
+   */
   render() {
     const { name, role, imageUrl } = this.props;
     return (
