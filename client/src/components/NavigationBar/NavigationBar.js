@@ -35,21 +35,30 @@ function NavigationBar() {
     return (
         <div className={Transparent ? 'header' : 'header header-bg'}>
             <nav className='navbar'>
-                <div><a href='/'><img src={logo} alt='logo' /></a></div>
+                {/* <div> */}
+                     <a href='/'><img src={logo} alt='logo' /></a>
+                {/* </div> */}
                 <div className='hamburger' onClick={handleClick}>
                     {click ? (<FaTimes size={30} style={{ color: '#FFFFFF' }} />)
                         : (<FaBars size={30} style={{ color: '#FFFFFF' }} />)}
                 </div>
                 <ul className={click ? "nav-menu active" : "nav-menu"}>
-                    <li className='nav-item'>
-                        <a href='/' onClick={closeMenu}><b>Home</b></a>
-                    </li>
-                    <li className='nav-item'>
-                        <a href='/about' onClick={closeMenu}><b>About</b></a>
-                    </li>
-                    <li className='nav-item'>
-                        <a href='/events' onClick={closeMenu}><b>Events</b></a>
-                    </li>
+                    <div className='tabs'>
+                        <li className='nav-item'>
+                            <a href='/' className = "button" onClick={closeMenu}><b>Home</b></a>
+                        </li>
+                        <li className='nav-item'>
+                            <a href='/activities' className = "button" onClick={closeMenu}><b>Activities</b></a>
+                        </li>
+                    </div>
+                    <div className = 'register'>
+                        <li className='nav-item'>
+                            <a href='/login' className = "button button-login"  onClick={closeMenu}><b>Member Login</b></a>
+                        </li>
+                        <li className='nav-item'>
+                            <a href='/join' className = "button button-join" onClick={closeMenu}><b>Join Now</b></a>
+                        </li>
+                    </div>
                 </ul>
             </nav>
         </div>
