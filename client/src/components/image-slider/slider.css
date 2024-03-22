@@ -35,6 +35,10 @@
     border-radius: 15px;
 }
 
+.text img{
+    width: 100%;
+}
+
 .slick-slider {
     width: 100%;
 }
