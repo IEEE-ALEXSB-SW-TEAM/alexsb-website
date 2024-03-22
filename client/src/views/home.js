@@ -1,4 +1,5 @@
 import ImageSlider from '../components/image-slider/ImageSlider';
+import CardComponent from '../components/CardComponent/CardComponent.js';
 import PurposeComponent from '../components/purpose/PurposeComponent';
 import OurBoardSection from '../components/Board/ourBoard';
 
