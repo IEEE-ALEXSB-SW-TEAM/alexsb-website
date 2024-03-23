@@ -1,21 +1,25 @@
 .card{
-    background-color: #3040cb;
+    background-color: #00000000;
     display: flex;
     justify-content: center;
     margin: 0;
     display: grid;
     place-content: center;
-    width: 400px; /* Set width to 200 pixels */
-    height: 500px; /* Set height to 300 pixels */
+    width: 400px; /* Set width to 400 pixels */
+    height: 400px; /* Set height to 400 pixels */
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
 }
 
 .card img{
-    width: 200px; /* Set your desired width */
+    width: 100%; /* Set your desired width */
     height: auto; /* Maintain aspect ratio */
     border-radius: 10px;
     transition: transform 0.3s ease; /* Add smooth transition */
-    opacity: 0.5;
+    opacity: 0.9;
     transition: opacity 0.3s ease; /* Add smooth transition */
+    padding-bottom: 5px;
 }
 
 .card img:hover{

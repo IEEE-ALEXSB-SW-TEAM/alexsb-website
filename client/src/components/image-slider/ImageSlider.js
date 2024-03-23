@@ -27,8 +27,8 @@ function ImageSlider({ slides }) {
       </Slider>
       <text className="text">
         <img src={logo} width="250px" alt="ieee logo" />
-        <h1 className="shadow">IEEE-AlexSB</h1>
-        <h1 className="shadow">+22 years of innovation and development</h1>
+        <h1 className="shadow">IEEE AlexSB</h1>
+        <h1 className="shadow">22+ years of innovation and development</h1>
       </text>
     </slider>
   );

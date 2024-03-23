@@ -17,10 +17,10 @@ function CardComponent(props) {
   return (
     <div className='card'>                                                                                                  
     <div className='card-image'>
-            <img src={props.image} alt="Mountains" /> 
+            <img src={props.image} alt="card" /> 
     </div>
     <div className='card-title'>
-    <p><center>{props.title}</center></p>
+    <h3><center>{props.title}</center></h3>
     </div>
     <div className='card-description'>
     <p><center>{props.description}</center></p>
