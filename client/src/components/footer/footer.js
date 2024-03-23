@@ -54,7 +54,7 @@ class Footer extends Component {
             </a>
           </div>
           <p>
-            &copy; {new Date().getFullYear()} IEEE-AlEXSB | All rights reserved | Terms of Service | Privacy
+            &copy; {new Date().getFullYear()} IEEE-AlexSB | All rights reserved
           </p>
         </div>
 
