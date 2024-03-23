@@ -1,6 +1,6 @@
 import ImageSlider from '../components/image-slider/ImageSlider';
-import CardComponent from '../components/CardComponent/CardComponent.js';
 import PurposeComponent from '../components/purpose/PurposeComponent';
+import Benefits from '../components/Benefits/Benefits';
 import OurBoardSection from '../components/Board/ourBoard';
 
 function home() {
@@ -14,30 +14,7 @@ function home() {
         <div>
             <ImageSlider slides={slides} />
             <PurposeComponent />
-            <br/>
-            <br/>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
-            <h1> Home Page </h1>
+            <Benefits />
             <OurBoardSection />
         </div>
     );
