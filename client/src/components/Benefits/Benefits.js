@@ -2,6 +2,11 @@ import React from "react";
 import "./benefits.css";
 import CardComponent from "../CardComponent/CardComponent";
 
+/**
+ * Renders the Benefits component.
+ * This component displays the benefits of joining IEEE AlexSB.
+ * @returns {JSX.Element} The Benefits component.
+ */
 const Benefits = () => {
   return (
     <div>
