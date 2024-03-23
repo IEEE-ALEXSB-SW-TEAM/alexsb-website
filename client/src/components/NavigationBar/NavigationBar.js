@@ -1,39 +1,64 @@
-import { useState } from 'react'
-import { FaBars, FaTimes } from 'react-icons/fa'
-import logo from '../../assets/AlexSBLogo.svg'
-import './NavigationBar.css'
+/**
+ * React component for the navigation bar.
+ * @component
+ * @returns {JSX.Element} Navigation bar component.
+ */
+import { useState } from 'react';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import logo from '../../assets/AlexSBLogo.svg';
+import './NavigationBar.css';
 
 function NavigationBar() {
     const IMAGE_HEIGHT = 10;
 
-    const [click, setClick] = useState(false) //useState intialized by false and stored in click and setclick is function to change state
-    const handleClick = () => {
-        setClick(!click) //handleclick function inverts the last value of click
-        if (!click) {
-            setTransparency(false)
-        } else if (window.scrollY >= IMAGE_HEIGHT) {
-            setTransparency(false)
-        } else {
-            setTransparency(true)
-        }
-    }
-    const closeMenu = () => setClick(false) //CloseMenu function sets the click state by false
+    /**
+     * State to manage click event on the menu.
+     * @type {[boolean, function]} 
+     */
+    const [click, setClick] = useState(false);
 
-    const [Transparent, setTransparency] = useState(true)
+    /**
+     * Function to handle click event on the menu.
+     */
+    const handleClick = () => {
+        setClick(!click);
+        if (!click) {
+            setTransparency(false);
+        } else if (window.scrollY >= IMAGE_HEIGHT) {
+            setTransparency(false);
+        } else {
+            setTransparency(true);
+        }
+    };
+
+    /**
+     * Function to close the menu.
+     */
+    const closeMenu = () => setClick(false);
+
+    /**
+     * State to manage the transparency of the navigation bar.
+     * @type {[boolean, function]} 
+     */
+    const [transparent, setTransparency] = useState(true);
+
+    /**
+     * Function to hide the navigation bar based on scroll and menu state.
+     */
     const hideNavbar = () => {
         if (click) {
-            setTransparency(false)
+            setTransparency(false);
         } else if (window.scrollY >= IMAGE_HEIGHT) {
-            setTransparency(false)
+            setTransparency(false);
         } else {
-            setTransparency(true)
+            setTransparency(true);
         }
-    }
+    };
 
     window.addEventListener('scroll', hideNavbar);
 
     return (
-        <div className={Transparent ? 'header' : 'header header-bg'}>
+        <div className={transparent ? 'header' : 'header header-bg'}>
             <nav className='navbar'>
                 <a href='/'><img className='navbar__logo' src={logo} alt='logo' /></a>
 
