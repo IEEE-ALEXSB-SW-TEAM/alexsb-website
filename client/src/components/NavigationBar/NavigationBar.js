@@ -1,65 +1,94 @@
-import { useState } from 'react'
-import { FaBars, FaTimes } from 'react-icons/fa'
-import logo from '../../assets/AlexSBLogo.svg'
-import './NavigationBar.css'
+/**
+ * React component for the navigation bar.
+ * @component
+ * @returns {JSX.Element} Navigation bar component.
+ */
+import { useState } from 'react';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import logo from '../../assets/AlexSBLogo.svg';
+import './NavigationBar.css';
 
 function NavigationBar() {
-    const imageHeight = 10;
+    const IMAGE_HEIGHT = 10;
 
-    const [click, setClick] = useState(false) //useState intialized by false and stored in click and setclick is function to change state
+    /**
+     * State to manage click event on the menu.
+     * @type {[boolean, function]} 
+     */
+    const [click, setClick] = useState(false);
+
+    /**
+     * Function to handle click event on the menu.
+     */
     const handleClick = () => {
-        setClick(!click) //handleclick function inverts the last value of click
+        setClick(!click);
         if (!click) {
-            setTransparency(false)
-        } else if (window.scrollY >= imageHeight) {
-            setTransparency(false)
+            setTransparency(false);
+        } else if (window.scrollY >= IMAGE_HEIGHT) {
+            setTransparency(false);
         } else {
-            setTransparency(true)
+            setTransparency(true);
         }
-    }
-    const closeMenu = () => setClick(false) //CloseMenu function sets the click state by false
+    };
 
-    const [Transparent, setTransparency] = useState(true)
+    /**
+     * Function to close the menu.
+     */
+    const closeMenu = () => setClick(false);
+
+    /**
+     * State to manage the transparency of the navigation bar.
+     * @type {[boolean, function]} 
+     */
+    const [transparent, setTransparency] = useState(true);
+
+    /**
+     * Function to hide the navigation bar based on scroll and menu state.
+     */
     const hideNavbar = () => {
         if (click) {
-            setTransparency(false)
-        } else if (window.scrollY >= imageHeight) {
-            setTransparency(false)
+            setTransparency(false);
+        } else if (window.scrollY >= IMAGE_HEIGHT) {
+            setTransparency(false);
         } else {
-            setTransparency(true)
+            setTransparency(true);
         }
-    }
+    };
 
     window.addEventListener('scroll', hideNavbar);
 
     return (
-        <div className={Transparent ? 'header' : 'header header-bg'}>
+        <div className={transparent ? 'header' : 'header header-bg'}>
             <nav className='navbar'>
-                {/* <div> */}
-                     <a href='/'><img src={logo} alt='logo' /></a>
-                {/* </div> */}
+                <a href='/'><img className='navbar__logo' src={logo} alt='logo' /></a>
+
                 <div className='hamburger' onClick={handleClick}>
                     {click ? (<FaTimes size={30} style={{ color: '#FFFFFF' }} />)
                         : (<FaBars size={30} style={{ color: '#FFFFFF' }} />)}
                 </div>
+
                 <ul className={click ? "nav-menu active" : "nav-menu"}>
-                    <div className='tabs'>
+
+                    <div className='default-tabs'>
                         <li className='nav-item'>
-                            <a href='/' className = "button" onClick={closeMenu}><b>HOME</b></a>
+                            <a href='/' className="tab-button" onClick={closeMenu}><b>HOME</b></a>
                         </li>
                         <li className='nav-item'>
-                            <a href='/activities' className = "button" onClick={closeMenu}><b>Activities</b></a>
-                        </li>
-                    </div>
-                    <div className = 'register'>
-                        <li className='nav-item'>
-                            <a href='/login' className = "button button-login"  onClick={closeMenu}><b>Member Login</b></a>
-                        </li>
-                        <li className='nav-item'>
-                            <a href='/join' className = "button button-join" onClick={closeMenu}><b>Join Now</b></a>
+                            <a href='/activities' className="tab-button" onClick={closeMenu}><b>Activities</b></a>
                         </li>
                     </div>
+
+                    <div className='register-tabs'>
+                        <li className='nav-item'>
+                            <a href='/login' className="tab-button tab-button-login" onClick={closeMenu}><b>Member Login</b></a>
+                        </li>
+                        <li className='nav-item'>
+                            <a href='/join' className="tab-button tab-button-join" onClick={closeMenu}><b>Join Now</b></a>
+                        </li>
+                    </div>
+
                 </ul>
+                
             </nav>
         </div>
     )
