@@ -27,7 +27,7 @@
 
 @media screen and (max-width: 768px) {
   .purpose-container {
-    padding: 5% 5%;
+    padding: 15% 5%;
   }
 
   .purpose-container h1 {
@@ -68,7 +68,7 @@
 
 @media screen and (max-width: 768px) {
   .about-container {
-    padding: 5% 5%;
+    padding: 15% 5%;
   }
 
   .about-container h1 {
