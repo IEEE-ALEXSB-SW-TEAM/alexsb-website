@@ -5,8 +5,8 @@
     margin: 0;
     display: grid;
     place-content: center;
-    width: 400px; /* Set width to 400 pixels */
-    height: 400px; /* Set height to 400 pixels */
+    width: var(--width); /* Set width to 400 pixels */
+    height: var(--height); /* Set height to 400 pixels 400 */
     padding-left: 20px;
     padding-right: 20px;
     color: white;
@@ -16,8 +16,8 @@
     width: 100%; /* Set your desired width */
     height: auto; /* Maintain aspect ratio */
     border-radius: 10px;
-    transition: transform 0.3s ease; /* Add smooth transition */
-    opacity: 0.9;
+    transition: transform 0.01s ease; /* Add smooth transition */
+    opacity: 0.8;
     transition: opacity 0.3s ease; /* Add smooth transition */
     padding-bottom: 5px;
 }
@@ -25,4 +25,11 @@
 .card img:hover{
     opacity: 1; /* Set opacity to 1 on hover */
     transform: scale(1.1); /* Scale the image up by 10% */
+}
+.card h3{
+    text-align: var(--position);
+}
+
+.card p{
+    text-align: var(--position);
 }
