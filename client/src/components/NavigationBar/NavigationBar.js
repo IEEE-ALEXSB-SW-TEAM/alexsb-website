@@ -71,7 +71,7 @@ function NavigationBar() {
 
                     <div className='default-tabs'>
                         <li className='nav-item'>
-                            <a href='/' className="tab-button" onClick={closeMenu}><b>HOME</b></a>
+                            <a href='/' className="tab-button" onClick={closeMenu}><b>Home</b></a>
                         </li>
                         <li className='nav-item'>
                             <a href='/activities' className="tab-button" onClick={closeMenu}><b>Activities</b></a>
