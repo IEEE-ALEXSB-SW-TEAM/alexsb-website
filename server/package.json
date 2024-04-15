@@ -1,0 +1,30 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "sever for our websit @ IEEE-AlexSB",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "seed": "echo 'Do it ya tamim & samir'",
+    "test": "echo 'Do it ya ay 7ad working on dev'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IEEE-ALEXSB-SW-TEAM/website_test.git"
+  },
+  "author": "IEEE-AlexSB-SW-Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IEEE-ALEXSB-SW-TEAM/website_test/issues"
+  },
+  "homepage": "https://github.com/IEEE-ALEXSB-SW-TEAM/website_test#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.9.4",
+    "nodemon": "^3.1.0",
+    "sequelize": "^6.37.3",
+    "sequelize-cli": "^6.6.2"
+  }
+}
