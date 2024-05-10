@@ -1,9 +1,14 @@
 module.exports = (sequelize, DataTypes) => {
     const Member = sequelize.define('Member', {
-        memberId: {
+        userId: {
             type: DataTypes.INTEGER,
             primaryKey: true,
-            autoIncrement: true,
+            allowNull: false,
+        },
+        memberId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            unique: true,
         },
         status: {
             type: DataTypes.STRING,
@@ -11,6 +16,11 @@ module.exports = (sequelize, DataTypes) => {
         },
         role: {
             type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: 'member',
+        },
+        joined: {
+            type: DataTypes.INTEGER,
             allowNull: false,
         },
     });

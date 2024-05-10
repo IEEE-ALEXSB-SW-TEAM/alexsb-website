@@ -10,8 +10,5 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
         },
     });
-    Committee.associate = models => {
-        Committee.hasMany(models.HeadCommittee, { foreignKey: 'committeeId' });
-    }
     return Committee;
 };

@@ -41,6 +41,14 @@ module.exports = (sequelize, DataTypes) => {
                 len: [11, 11],
             },
         },
+        education: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        profilePicture: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
     });  
     return User;
 };
