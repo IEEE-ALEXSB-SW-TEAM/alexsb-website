@@ -1,9 +1,11 @@
+import SignUp from "../components/register/signup";
 
-function join(){
-    return(
-        <div>
-            <h1>join now</h1>
-        </div>
-    );
+function join() {
+  return (
+    <div>
+      <SignUp />
+    </div>
+  );
 }
-export default join; 
+
+export default join;

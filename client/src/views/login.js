@@ -1,7 +1,9 @@
-function login(){
+import LogIn from "../components/register/login";
+
+function login() {
     return(
         <div>
-            <h1>Member Login</h1>
+            <LogIn />
         </div>
     )
 }
