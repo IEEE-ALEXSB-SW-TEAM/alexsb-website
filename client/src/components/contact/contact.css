@@ -1,0 +1,95 @@
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background-image: url(../../assets/bg-intro-mobile.png);
+  background-color: #4f6b8a;
+}
+
+.ieee_logo {
+  max-width: 500px;
+  height: auto;
+  -webkit-filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 1));
+  filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 1));
+}
+
+.contact-form-container {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  border-bottom: 5px solid rgba(0, 0, 0, 0.2);
+}
+
+.contact-form-container textarea,
+.contact-form-container input {
+  width: 95%;
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  outline: none;
+  resize: none;
+}
+
+.error {
+  color: red;
+  text-align: left;
+  margin-top: -10px;
+}
+
+.result {
+  text-align: left;
+  margin-top: 10px;
+}
+
+.submit-btn {
+  width: 100%;
+  background-color: hsl(154, 59%, 51%);
+  border: none;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.contact-text-container {
+  text-align: center;
+  color: white;
+}
+
+.contact-text-container h2 {
+  font-weight: 600;
+  font-size: 2rem;
+  color: #f99417;
+  text-shadow: 0px 0px 15px rgba(0, 0, 0, 1);
+  line-height: 1.2em;
+  margin-top: 10px;
+}
+
+.contact-text-container p {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .contact-container {
+    padding: 20px;
+  }
+
+  .contact-form-container {
+    max-width: 80%;
+  }
+
+  .contact-text-container h2 {
+    font-size: 1.8rem;
+  }
+
+  .contact-text-container p {
+    font-size: 1.2rem;
+    margin-top: 15px;
+  }
+}

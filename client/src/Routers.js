@@ -3,6 +3,7 @@ import Home from "./views/home.js";
 import Activities from "./views/activities.js";
 import Login from "./views/login.js";
 import Join from "./views/join.js";
+import Contact from "./views/contact.js";
 
 function Routers() {
   return (
@@ -13,6 +14,7 @@ function Routers() {
           <Route path="/activities" component={Activities} />
           <Route path="/login" component={Login} />
           <Route path="/join" component={Join} />
+          <Route path="/contact" component={Contact} />
         </Switch>
       </div>
     </Router>
