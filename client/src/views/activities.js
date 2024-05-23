@@ -1,8 +1,10 @@
+import React from 'react';
+import Activities from '../components/activities/activities';
 
 function activities(){
     return(
         <div>
-            <h1>Activities</h1>
+        <Activities />
         </div>
     );
 }

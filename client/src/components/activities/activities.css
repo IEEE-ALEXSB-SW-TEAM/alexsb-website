@@ -1,0 +1,93 @@
+.activities-container {
+  background-color: #4f6b8a;
+  background-image: url(../../assets/bg-intro-mobile.png);
+  padding-top: 90px;
+}
+
+.activities-title {
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 2%;
+  font-size: 4rem;
+  background-color: #f99417;
+  border: 2px solid black;
+  border-radius: 20px;
+  color: white;
+  text-shadow: -1px -1px 0 #000,  
+                1px -1px 0 #000,
+               -1px  1px 0 #000,
+                1px  1px 0 #000;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.sorry {
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 16px; 
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 2%;
+  background-color: #4f6b8a;
+  border: 2px solid black;
+  border-radius: 20px;
+  text-shadow: -1px -1px 0 #000,  
+                1px -1px 0 #000,
+               -1px  1px 0 #000,
+                1px  1px 0 #000;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.sorry h1 {
+  margin-bottom: 10px;
+}
+
+.sorry p {
+  font-size: 16px;
+}
+
+.socials {
+  margin-top: 10px;
+}
+
+.socials img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.events-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 10%;
+  gap: 20px;
+}
+
+.event-card {
+  flex: 1 1 calc(33.333% - 20px);
+  box-sizing: border-box;
+}
+
+@media (max-width: 1200px) {
+  .event-card {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .activities-title {
+    font-size: 3rem;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .sorry {
+    font-size: 1.5rem;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .event-card {
+    flex: 1 1 100%;
+  }
+}
