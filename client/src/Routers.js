@@ -4,6 +4,7 @@ import Activities from "./views/activities.js";
 import Login from "./views/login.js";
 import Join from "./views/join.js";
 import Contact from "./views/contact.js";
+import Protons from "./views/protons.js"
 
 function Routers() {
   return (
@@ -15,6 +16,7 @@ function Routers() {
           <Route path="/login" component={Login} />
           <Route path="/join" component={Join} />
           <Route path="/contact" component={Contact} />
+          <Route path="/protons" component={Protons} />
         </Switch>
       </div>
     </Router>

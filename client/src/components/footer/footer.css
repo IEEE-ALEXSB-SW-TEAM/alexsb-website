@@ -1,4 +1,3 @@
-/* *{width: 100%;} */
 /* Reset some default margin and padding */
 body, h1, h2, h3, p, ul {
     margin: 0;
@@ -9,35 +8,58 @@ body, h1, h2, h3, p, ul {
 .footer {
     background-color: #317ABE;
     color: #fff;
-    padding-top:30px;
-    flex-direction: column;
+    padding-top: 30px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     /* font-family: Arial, sans-serif; */
 }
 
 .footer-content {
-    flex: 1;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
 }
 
-.about-content {
-    flex: 1;
-    margin-right: 20px;
-    font-size: small;
-}
 .footer-section {
     flex: 1;
-    margin-right: 30px;
+    margin: 10px;
+    text-align: center;
 }
 
 .footer-section.about img {
     margin-top: 5%;
     margin-bottom: 20%;
-    margin-left: 15%;
     width: 70%; /* Set the width of the image */
     height: auto; /* Maintain aspect ratio */
+}
+
+/* Style for the contact section */
+.contact {
+    list-style-type: none;
+    padding: 0;
+    text-align: center; /* Center the text in the contact section */
+}
+
+.contact li {
+    margin-bottom: 10px;
+}
+
+.contact span {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the content within the span */
+}
+
+.contact .email-link, .contact .location {
+    color: white; /* Ensure the link color matches the design */
+    text-decoration: none;
+}
+
+.contact .email-link:hover, .contact .location:hover {
+    text-decoration: underline; /* Add underline on hover for better UX */
 }
 
 /* Style for the social media icons */
@@ -48,71 +70,85 @@ body, h1, h2, h3, p, ul {
 }
 
 /* Style for the links in the Quick Links section */
-.links ul {
+.links ul, .ieee ul {
     list-style-type: none;
-    color: #fff;
     padding: 0;
+    color: #fff;
 }
 
-.links ul li {
+.links ul li, .ieee ul li {
     margin-bottom: 5px;
     color: #fff;
 }
-.links ul a {
-    margin-bottom: 5px;
-    margin-top: 5px;
+
+.links ul a, .ieee ul a {
     color: #fff;
     text-decoration: none;
 }
-
 
 .email-link {
     color: white; /* Change the color of the link text to white */
     text-decoration: none;
-  }
-  
+}
+
 .footer-bottom {
-    border-top: 2px solid #fff; 
-    background-color:  #317ABE;
+    border-top: 2px solid #fff;
+    background-color: #317ABE;
     color: #ffffff;
     text-align: center;
     padding: 10px 0;
-    font-size: 16px; 
-    flex: 1;
+    font-size: 16px;
+    width: 100%;
 }
 
-
-
-
-
-
-
+/* Responsive styling */
 @media (max-width: 768px) {
-    @media (max-width: 789px) {
-        .footer-section {
-            flex: 1;
-            margin-right: 0;
-            margin-bottom: 20px;
-        }
-        .links {
-            margin-left: 0;
-        }
-        .footer-section.about,
-        .footer-section.links,
-        .footer-section.contact-us {
-            flex: 0 0 100%; /* Make each section take full width */
-        }
-        .footer-section.links,
-        .footer-section.contact-us {
-            margin-top: 0; /* Remove margin from top of these sections */
-            margin-left: 5%;
-        }
-        .footer-content {
-            display: inline;
-            flex-direction: row; /* Change direction to row */
-            flex-wrap: wrap; /* Allow items to wrap */
-        }
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
     }
-    
+
+    .footer-section {
+        flex: 1 0 100%;
+        margin-bottom: 20px;
+    }
+
+    .footer-section.about {
+        order: 1; /* Move logo to the top */
+    }
+
+    .footer-section.contact-us {
+        order: 2; /* Move Contact Us section below the logo */
+    }
+
+    .footer-section.links, .footer-section.ieee {
+        order: 3; /* Move these sections below Contact Us */
+        flex: 1 0 45%; /* Make each section take about half the width */
+        text-align: center; /* Align text to the center for better readability */
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .footer-section.about img {
+        margin: 0%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
 }
 
+@media (max-width: 480px) {
+    .footer-section.ieee, .footer-section.links {
+        flex: 1 0 100%; /* Stack them vertically on very small screens */
+    }
+
+    .socials img {
+        width: 40px;
+        height: 40px;
+        margin-right: 5px;
+    }
+
+    .footer-bottom {
+        font-size: 14px;
+    }
+}
