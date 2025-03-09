@@ -9,7 +9,7 @@ server/
 │   ├── routes/        # API route definitions
 │   ├── utils/         # Utility functions and helpers
 │   ├── middlewares/   # Middleware functions
-│   ├── index.js       # Entry point of the server
+│   ├── server.js       # Entry point of the server
 │── prisma/
 │   ├── migrations/    # Database migrations
 │   ├── schema.prisma  # Database schema
@@ -27,7 +27,6 @@ server/
 
 ```sh
 git clone https://github.com/IEEE-ALEXSB-SW-TEAM/alexsb-website.git
-cd backend
 git checkout test
 ```
 
