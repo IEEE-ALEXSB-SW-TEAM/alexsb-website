@@ -55,6 +55,7 @@ Create a `.env` file in the root directory and add the following:
 ```ini
 DATABASE_URL="postgresql://user:password@localhost:5432/mydb"
 PORT=5000
+NODE_ENV=development
 ```
 
 ---
