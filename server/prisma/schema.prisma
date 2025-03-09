@@ -12,3 +12,50 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  user_id    Int    @id @default(autoincrement())
+  email      String @unique
+  name       String
+  password   String
+  university String
+  faculty    String
+  department String
+  grad_year  Int
+  phone_num  String
+
+  registrations Registration[]
+}
+
+model Event {
+  event_id     Int      @id @default(autoincrement())
+  name         String
+  start        DateTime
+  end          DateTime
+  brief        String
+  description  String
+  image_url    String
+  instructions String
+  deadline     DateTime
+
+  registrations Registration[]
+}
+
+model Contact {
+  contact_id Int     @id @default(autoincrement())
+  email      String?
+  phone_num  String?
+  name       String
+  message    String
+}
+
+model Registration {
+  reg_id   Int @id @default(autoincrement())
+  user_id  Int
+  event_id Int
+
+  user  User  @relation(fields: [user_id], references: [user_id], onDelete: Cascade)
+  event Event @relation(fields: [event_id], references: [event_id], onDelete: Cascade)
+
+  @@unique([user_id, event_id]) // Prevent duplicate registrations
+}
