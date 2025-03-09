@@ -24,7 +24,7 @@ class OurBoardSection extends Component {
             speed: 500,
             slidesToShow: 4,   
             slidesToScroll: 1,
-            autoplay: true,   
+            autoplay: false,   
             autoplaySpeed: 2000,   
             responsive: [
                 {
@@ -45,7 +45,7 @@ class OurBoardSection extends Component {
         return (
             <>
                 <section className="our-board-section">
-                    <h2 className="section-title">OUR BOARD</h2>
+                    <h2 className="section-title">OUR HIGH BOARD</h2>
                     {/* Slider component */}
                     <Slider {...settings} className="board-slider-container">
                         {/* Mapping through board members and rendering BoardCard component */}

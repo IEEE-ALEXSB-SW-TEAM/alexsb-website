@@ -79,6 +79,9 @@ function NavigationBar() {
                         <li className='nav-item'>
                             <a href='/contact' className="tab-button" onClick={closeMenu}><b>Contact Us</b></a>
                         </li>
+                        <li className='nav-item'>
+                            <a href='/protons' className="tab-button" onClick={closeMenu}><b>Protons</b></a>
+                        </li>
                     </div>
 
                     <div className='register-tabs'>

@@ -6,11 +6,13 @@ import ig from "../../assets/icons8-instagram-50.png";
 import li from "../../assets/icons8-linkedin-50.png";
 
 import './activities.css';
+import events from './events.js'; 
+
 const Activities = () => {
     return (
     <div className="activities-container">
-      <h1 className="activities-title"><center>Active Events</center></h1>
-      <div className='sorry'>
+      {/* <h1 className="activities-title"><center>Upcoming Events</center></h1> */}
+      {/* <div className='sorry'>
           <h1 className="sorry-title"><center>Sorry, No acvtive events for now :(</center></h1>
           <p><center>we are working on somethings amazing follow us on our socila media to get the latest news,</center></p>
           <p><center> and see what we have done till now in the section below</center></p>
@@ -28,55 +30,20 @@ const Activities = () => {
               <img src={li} alt="linkedin" />
             </a>
           </div>
-      </div>
+      </div> */}
       <h1 className="activities-title"><center>Latest Events</center></h1>
-        <div className="events-grid">
-          <div className="event-card">
-          <EventCard
-            imageUrl="./images/ieee-1.jpg"
-            title="Event Title 1"
-            date="May 12, 2024"
-            briefDescription="Brief description of the event 1."
-            longDescription="Long description of the event 1 which will be displayed on hover."
+      <div className="events-grid">
+        {events.map((event, index) => (
+          <div className="event-card" key={index}>
+            <EventCard
+              imageUrl={event.imageUrl}
+              title={event.title}
+              date={event.date}
+              briefDescription={event.briefDescription}
+              longDescription={event.longDescription}
             />
           </div>
-          <div className="event-card">
-          <EventCard
-            imageUrl="./images/ieee-1.jpg"
-            title="Event Title 2"
-            date="May 15, 2024"
-            briefDescription="Brief description of the event 2."
-            longDescription="Long description of the event 2 which will be displayed on hover."
-            />
-          </div>
-          <div className="event-card">
-          <EventCard
-            imageUrl="./images/ieee-1.jpg"
-            title="Event Title 3"
-            date="May 18, 2024"
-            briefDescription="Brief description of the event 3."
-            longDescription="Long description of the event 3 which will be displayed on hover."
-            />
-          </div>
-          <div className="event-card">
-          <EventCard
-            imageUrl="./images/ieee-1.jpg"
-            title="Event Title 4"
-            date="May 20, 2024"
-            briefDescription="Brief description of the event 4."
-            longDescription="Long description of the event 4 which will be displayed on hover blabla."
-            />
-          </div>
-          <div className="event-card">
-          <EventCard
-            imageUrl="./images/ieee_bg.png"
-            title="Event Title 5"
-            date="May 22, 2024"
-            briefDescription="Brief description of the event 5."
-            longDescription="Long description of the event 5 which will be displayed on hover. blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla "
-            />
-          </div>
-
+        ))}
       </div>
     </div>
   );

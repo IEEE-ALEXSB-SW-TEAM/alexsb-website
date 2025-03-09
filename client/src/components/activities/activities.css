@@ -20,7 +20,10 @@
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   text-align: center;
 }
-
+.headline {
+  color: #f99417;
+  font-size: 18px;
+}
 .sorry {
   color: #ffffff;
   text-align: center;
