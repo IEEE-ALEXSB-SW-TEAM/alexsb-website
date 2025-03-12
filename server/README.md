@@ -51,14 +51,35 @@ npm install
 ### **5. Configure Environment Variables**
 
 Create a `.env` file in the root directory and add the following:
-
 ```ini
-DATABASE_URL="postgresql://user:password@localhost:5432/mydb"
+#  Server Configuration
 PORT=5000
 NODE_ENV=development
+
+#  Database Configuration
+DATABASE_URL="postgresql://user:password@localhost:5432/mydb"
+
+#  Email Configuration (SMTP)
+SMTP_HOST=smtp.gmail.com  # Change this for other providers
+SMTP_PORT=587             # Common ports: 465 (SSL) or 587 (TLS)
+SMTP_USER=your-email@example.com
+SMTP_PASS=your-app-password
+EMAIL_FROM=your-email@example.com
 ```
 
 ---
+
+##  Using Different Email Providers
+
+| **Provider**  | **SMTP Host**           | **Port** | **Notes** |
+|--------------|-------------------------|--------|--------------------------------|
+| Gmail       | `smtp.gmail.com`         | 587    | Use **App Password**, not your regular password |
+| Outlook     | `smtp.office365.com`     | 587    | Requires **TLS** |
+| Yahoo       | `smtp.mail.yahoo.com`    | 465    | Requires **SSL** |
+
+
+---
+
 
 ##  Database Setup
 
