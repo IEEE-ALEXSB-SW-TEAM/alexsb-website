@@ -9,7 +9,7 @@ server/
 │   ├── routes/        # API route definitions
 │   ├── services/      # Core business logic and integrations
 │   ├── middlewares/   # Middleware functions
-│   ├── server.js       # Entry point of the server
+│   ├── server.js      # Entry point of the server
 │── prisma/
 │   ├── migrations/    # Database migrations
 │   ├── schema.prisma  # Database schema
