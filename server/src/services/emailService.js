@@ -1,5 +1,5 @@
 import transporter from "../config/email.js";
-import { emailTemplates } from "../utils/emailTemplates.js";
+import { emailTemplates } from "./emailTemplates.js";
 import dotenv from "dotenv";
 
 dotenv.config();
