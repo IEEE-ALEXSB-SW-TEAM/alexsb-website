@@ -3,13 +3,15 @@ This is the backend for IEEE AlexSb Website, built with **Node.js, Express, Pris
 
 ```
 server/
+│── resources/
+│   ├── emailTemplates.json   # Contains templates for email service
 │── src/
 │   ├── config/        # Configuration files (Swagger, DB, etc.)
 │   ├── controllers/   # Business logic for API routes
 │   ├── routes/        # API route definitions
 │   ├── services/      # Core business logic and integrations
 │   ├── middlewares/   # Middleware functions
-│   ├── server.js       # Entry point of the server
+│   ├── server.js      # Entry point of the server
 │── prisma/
 │   ├── migrations/    # Database migrations
 │   ├── schema.prisma  # Database schema
