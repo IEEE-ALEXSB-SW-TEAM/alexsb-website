@@ -7,7 +7,7 @@ server/
 │   ├── config/        # Configuration files (Swagger, DB, etc.)
 │   ├── controllers/   # Business logic for API routes
 │   ├── routes/        # API route definitions
-│   ├── utils/         # Core business logic and integrations
+│   ├── services/      # Core business logic and integrations
 │   ├── middlewares/   # Middleware functions
 │   ├── server.js       # Entry point of the server
 │── prisma/
