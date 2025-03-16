@@ -10,7 +10,14 @@ export const sendEmail = async (to, template, params) => {
       throw new Error(`Email template "${template}" not found.`);
     }
 
-    const { subject, text, html } = emailTemplates[template](...params);
+    let { subject, text, html } = emailTemplates[template];
+
+    // Replace placeholders in subject, text, and html
+    Object.keys(params).forEach((key) => {
+      subject = subject.replace(`{${key}}`, params[key]);
+      text = text.replace(`{${key}}`, params[key]);
+      html = html.replace(`{${key}}`, params[key]);
+    });
 
     const mailOptions = {
       from: process.env.EMAIL_FROM,
@@ -28,4 +35,3 @@ export const sendEmail = async (to, template, params) => {
     throw new Error("Email sending failed");
   }
 };
-
