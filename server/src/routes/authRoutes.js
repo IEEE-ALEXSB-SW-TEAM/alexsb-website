@@ -1,5 +1,5 @@
 import express from "express";
-import { signup, login, refreshToken, logout } from "../controllers/authController.js";
+import { signup, login, refreshToken, logout,forgotPassword,verifyResetCode,resetPassword } from "../controllers/authController.js";
 import verifyToken from "../middlewares/authMiddleware.js";
 const router = express.Router();
 
@@ -319,5 +319,94 @@ router.post("/refresh", refreshToken);
  *                   example: "Logout failed. Please try again."
  */
 router.post("/logout", verifyToken, logout);
+
+/**
+ * @swagger
+ * /forget-password:
+ *   post:
+ *     summary: Request password reset
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 example: user@example.com
+ *     responses:
+ *       200:
+ *         description: Reset code sent via email
+ *       404:
+ *         description: Email not found
+ */
+router.post("/forget-password", forgotPassword);
+
+/**
+ * @swagger
+ * /verify-reset-code:
+ *   post:
+ *     summary: Verify password reset code
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *               - code
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 example: user@example.com
+ *               code:
+ *                 type: string
+ *                 example: "123456"
+ *     responses:
+ *       200:
+ *         description: Code verified successfully
+ *       400:
+ *         description: Invalid or expired code
+ */
+router.post("/verify-reset-code", verifyResetCode);
+
+/**
+ * @swagger
+ * /reset-password:
+ *   post:
+ *     summary: Reset user password
+ *     tags: [Auth]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - newPassword
+ *             properties:
+ *               newPassword:
+ *                 type: string
+ *                 format: password
+ *                 example: NewPassword123!
+ *     responses:
+ *       200:
+ *         description: Password reset successfully
+ *       400:
+ *         description: Invalid request
+ *       401:
+ *         description: Unauthorized - Invalid or expired token
+ */
+router.post("/reset-password",verifyToken, resetPassword);
 
 export default router;

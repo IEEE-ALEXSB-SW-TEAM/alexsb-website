@@ -1,6 +1,9 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
+import crypto from 'crypto';
 import { prisma } from '../config/prisma.js';
+import redisClient from '../config/redis.js'
+import { sendEmail } from '../services/emailService.js';
 const REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET 
 const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET
 const SALT_ROUNDS = parseInt(process.env.SALT_ROUNDS)
@@ -138,3 +141,72 @@ export const logout = async (req, res) => {
         return res.status(500).json({ message: "Internal Server Error" });
     }
 }
+
+
+export const forgotPassword = async (req, res) => {
+    const { email } = req.body;
+
+    try {
+        const user = await prisma.user.findUnique({ where: { email } });
+        if (!user) {
+            return res.status(404).send("User not found.");
+        }
+
+        const resetCode = crypto.randomInt(100000, 999999).toString();
+        
+        await redisClient.set(`resetCode:${email}`, resetCode, "EX", 600);
+
+        await sendEmail(email, "forgotPassword", { name: user.name, code: resetCode });
+        
+        res.send("Verification code sent to your email.");
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error sending verification code.");
+    }
+};
+
+export const verifyResetCode = async (req, res) => {
+    const { email, code } = req.body;
+
+    try {
+        const resetCode = await redisClient.get(`resetCode:${email}`);
+
+        if (!resetCode || code !== resetCode) {
+            return res.status(400).send("Invalid or expired code.");
+        }
+
+        // Generate a temporary token (valid for 10 minutes)
+        const tempToken = jwt.sign({ email }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "10m" });
+
+        res.status(200).json({ message: "Code verified successfully.", tempToken });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error verifying code.");
+    }
+};
+export const resetPassword = async (req, res) => {
+    const { newPassword } = req.body;
+
+    try {
+        const user = await prisma.user.findUnique({ where: { email: req.user.email } });
+
+        if (!user) {
+            return res.status(404).send("User not found.");
+        }
+
+        const hashedPassword = await bcrypt.hash(newPassword, SALT_ROUNDS);
+
+        await prisma.user.update({
+            where: { email: req.user.email },
+            data: { password: hashedPassword },
+        });
+
+        // Remove the reset code from Redis after successful password reset
+        await redisClient.del(`resetCode:${req.user.email}`);
+
+        res.send("Password reset successfully.");
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error resetting password.");
+    }
+};
