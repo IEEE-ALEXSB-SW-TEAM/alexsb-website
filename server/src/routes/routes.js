@@ -5,7 +5,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /events:
+ * /api/events:
  *   get:
  *     summary: Retrieve paginated list of events
  *     description: Retrieve a paginated list of events.
@@ -72,7 +72,7 @@ router.get("/events", getEvents);
 
 /**
  * @swagger
- * /register/{event_id}:
+ * /api/register/{event_id}:
  *   post:
  *     summary: Register user for an event
  *     description: Register a user for an event.

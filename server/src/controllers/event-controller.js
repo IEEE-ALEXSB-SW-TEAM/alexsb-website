@@ -28,7 +28,7 @@ export const getEvents = async (req, res) => {
             },
         });
     } catch (error) {
-        res.status(500).json({ error: "Failed to retrieve events" });
+        res.status(500).json({ message: "Failed to retrieve events", error: error });
     }
 };
 
@@ -41,18 +41,17 @@ export const getEvents = async (req, res) => {
 
 export const registerForEvent = async (req, res) => {
     const { event_id } = req.params;
-    const { user } = req.body;
-
+    const { user_id} = req.body;
     try {
         const registration = await prisma.registration.create({
             data: {
-                user_id: parseInt(user.user_id),
+                user_id: parseInt(user_id),
                 event_id: parseInt(event_id),
 
             },
         });
         res.status(201).json(registration);
     } catch (error) {
-        res.status(500).json({ error: "Failed to register for event" });
+        res.status(500).json({ message: "Failed to register for event", error: error });
     }
 };
