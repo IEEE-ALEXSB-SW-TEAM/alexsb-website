@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import { swaggerUi, swaggerSpec } from "./config/swagger.js";
+import routes from "./routes/routes.js";
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use("/api", routes);
 
 const PORT = process.env.PORT || 5000;
 
