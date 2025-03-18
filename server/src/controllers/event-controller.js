@@ -6,6 +6,7 @@ import { prisma } from "../config/prisma.js";
  * @param {Object} res The response object
  * @returns {JSON} A paginated list of events
  */
+
 export const getEvents = async (req, res) => {
     const { page = 1, per_page = 10 } = req.query;
     const skip = (page - 1) * per_page;
@@ -37,6 +38,7 @@ export const getEvents = async (req, res) => {
  * @param {Object} res The response object 
  * @returns {JSON} A success message or an error message
  */
+
 export const registerForEvent = async (req, res) => {
     const { event_id } = req.params;
     const { user } = req.body;
