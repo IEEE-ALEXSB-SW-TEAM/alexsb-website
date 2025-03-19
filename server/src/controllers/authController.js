@@ -4,18 +4,31 @@ import crypto from 'crypto';
 import { prisma } from '../config/prisma.js';
 import redisClient from '../config/redis.js'
 import { sendEmail } from '../services/emailService.js';
-const REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET 
+const REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET
 const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET
 const SALT_ROUNDS = parseInt(process.env.SALT_ROUNDS)
 const ACCESS_TOKEN_LIFE = process.env.ACCESS_TOKEN_LIFE
 const REFRESH_TOKEN_LIFE = process.env.REFRESH_TOKEN_LIFE
-const NODE_ENV=process.env.NODE_ENV
+const NODE_ENV = process.env.NODE_ENV
 
+/**
+ * Generates access and refresh tokens for a user.
+ * @param {Object} user - The user object.
+ * @param {string} user.userId - The user's ID.
+ * @returns {{ accessToken: string, refreshToken: string }} Tokens object containing accessToken and refreshToken.
+ */
 export const generateTokens = (user) => {
     const accessToken = jwt.sign(user, ACCESS_TOKEN_SECRET, { expiresIn: ACCESS_TOKEN_LIFE });
     const refreshToken = jwt.sign(user, REFRESH_TOKEN_SECRET, { expiresIn: REFRESH_TOKEN_LIFE });
     return { accessToken, refreshToken };
 }
+
+/**
+ * Handles user registration.
+ * @param {import('express').Request} req - Express request object.
+ * @param {import('express').Response} res - Express response object.
+ * @returns {Promise<void>} A promise that resolves when the response is sent.
+ */
 export const signup = async (req, res) => {
     try {
         const { email, name, password, university, faculty, department, grad_year, phone_num } = req.body;
@@ -64,6 +77,12 @@ export const signup = async (req, res) => {
     }
 };
 
+/**
+ * Handles user login and generates authentication tokens.
+ * @param {import('express').Request} req - Express request object.
+ * @param {import('express').Response} res - Express response object.
+ * @returns {Promise<void>} A promise that resolves when the response is sent.
+ */
 export const login = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -90,7 +109,7 @@ export const login = async (req, res) => {
         res.cookie("refreshToken", tokens.refreshToken, {
             httpOnly: true,
             secure: NODE_ENV === "production",
-            sameSite: NODE_ENV === "production" ? "Strict" : "Lax", 
+            sameSite: NODE_ENV === "production" ? "Strict" : "Lax",
             maxAge: 7 * 24 * 60 * 60 * 1000,
         });
 
@@ -102,9 +121,15 @@ export const login = async (req, res) => {
     }
 };
 
+/**
+ * Generates a new access token using a valid refresh token.
+ * @param {import('express').Request} req - Express request object.
+ * @param {import('express').Response} res - Express response object.
+ * @returns {Promise<void>} A promise that resolves when the response is sent.
+ */
 export const refreshToken = async (req, res) => {
     try {
-        const refreshToken = req.cookies.refreshToken 
+        const refreshToken = req.cookies.refreshToken
 
         if (!refreshToken) {
             return res.status(401).json({ message: "No refresh token provided" });
@@ -115,7 +140,7 @@ export const refreshToken = async (req, res) => {
 
             const newAccessToken = jwt.sign(
                 { userId: decoded.userId },
-                  ACCESS_TOKEN_SECRET,
+                ACCESS_TOKEN_SECRET,
                 { expiresIn: ACCESS_TOKEN_LIFE }
             );
 
@@ -128,6 +153,12 @@ export const refreshToken = async (req, res) => {
     }
 };
 
+/**
+ * Sends a password reset verification code via email.
+ * @param {import('express').Request} req - Express request object.
+ * @param {import('express').Response} res - Express response object.
+ * @returns {Promise<void>} A promise that resolves when the response is sent.
+ */
 export const logout = async (req, res) => {
     try {
         res.clearCookie("refreshToken", {
@@ -143,7 +174,12 @@ export const logout = async (req, res) => {
     }
 }
 
-
+/**
+ * Sends a password reset verification code via email.
+ * @param {import('express').Request} req - Express request object.
+ * @param {import('express').Response} res - Express response object.
+ * @returns {Promise<void>}
+ */
 export const forgotPassword = async (req, res) => {
     const { email } = req.body;
 
@@ -154,11 +190,11 @@ export const forgotPassword = async (req, res) => {
         }
 
         const resetCode = crypto.randomInt(100000, 999999).toString();
-        
+
         await redisClient.set(`resetCode:${email}`, resetCode, "EX", 600);
 
         await sendEmail(email, "forgotPassword", { name: user.name, code: resetCode });
-        
+
         res.send("Verification code sent to your email.");
     } catch (err) {
         console.error(err);
@@ -166,6 +202,12 @@ export const forgotPassword = async (req, res) => {
     }
 };
 
+/**
+ * Verifies the password reset code.
+ * @param {import('express').Request} req - Express request object.
+ * @param {import('express').Response} res - Express response object.
+ * @returns {Promise<void>}
+ */
 export const verifyResetCode = async (req, res) => {
     const { email, code } = req.body;
 
@@ -185,6 +227,13 @@ export const verifyResetCode = async (req, res) => {
         res.status(500).send("Error verifying code.");
     }
 };
+
+/**
+ * Resets the user password after verification.
+ * @param {import('express').Request} req - Express request object. Requires authentication middleware to attach `req.user.email`.
+ * @param {import('express').Response} res - Express response object.
+ * @returns {Promise<void>} A promise that resolves when the password is reset.
+ */
 export const resetPassword = async (req, res) => {
     const { newPassword } = req.body;
 
