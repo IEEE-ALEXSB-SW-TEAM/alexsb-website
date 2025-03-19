@@ -38,6 +38,7 @@ export const signup = async (req, res) => {
                 phone_num
             },
         });
+        await sendEmail(email, "welcome", { name: name });
         return res.status(201).json({
             message: "User created successfully",
             user: {
