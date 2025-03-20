@@ -55,7 +55,10 @@
   border-radius: 5px;
   padding: 15px;
 }
-
+.submit-btn:hover {
+  background-color: hsl(154, 59%, 40%);
+  cursor: pointer;
+}
 .contact-text-container {
   text-align: center;
   color: white;
