@@ -1,14 +1,60 @@
 import express from "express";
 import { getEvents, registerForEvent } from "../controllers/event-controller.js";
-
+import verifyToken from "../middlewares/authMiddleware.js";
 const router = express.Router();
 
 /**
  * @swagger
- * /api/events:
+ * tags:
+ *   name: Events
+ *   description: Get all events and register for an event
+ */
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Event:
+ *       type: object
+ *       properties:
+ *         event_id:
+ *           type: integer
+ *         name:
+ *           type: string
+ *         start:
+ *           type: string
+ *           format: date-time
+ *         end:
+ *           type: string
+ *           format: date-time
+ *         brief:
+ *           type: string
+ *         description:
+ *           type: string
+ *         image_url:
+ *           type: string
+ *         instructions:
+ *           type: string
+ *         deadline:
+ *           type: string
+ *           format: date-time
+ *     Registration:
+ *       type: object
+ *       properties:
+ *         reg_id:
+ *           type: integer
+ *         user_id:
+ *           type: integer
+ *         event_id:
+ *           type: integer
+ */
+/**
+ * @swagger
+ * /events:
  *   get:
  *     summary: Retrieve paginated list of events
  *     description: Retrieve a paginated list of events.
+ *     tags:
+ *       - Events    
  *     parameters:
  *       - in: query
  *         name: page
@@ -72,26 +118,21 @@ router.get("/events", getEvents);
 
 /**
  * @swagger
- * /api/register/{event_id}:
+ * /events/register/{event_id}:
  *   post:
- *     summary: Register user for an event
- *     description: Register a user for an event.
- *     parameters:
+ *     summary: Register the authenticated user for an event
+ *     description: Registers the user identified by the access token for a specified event.
+ *     tags:
+ *       - Events  
+*     parameters:
  *       - in: path
  *         name: event_id
  *         required: true
  *         schema:
  *           type: integer
  *         description: The ID of the event to register for.
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               user_id:
- *                 type: integer
+ *     security:
+ *       - bearerAuth: []
  *     responses:
  *       201:
  *         description: Successfully registered for the event.
@@ -106,9 +147,12 @@ router.get("/events", getEvents);
  *                   type: integer
  *                 event_id:
  *                   type: integer
+ *       401:
+ *         description: Unauthorized. Missing or invalid token.
  *       500:
- *         description: Failed to register for event.
+ *         description: Failed to register for the event.
  */
-router.post("/register/:event_id", registerForEvent);
+
+router.post("/events/register/:event_id",verifyToken, registerForEvent);
 
 export default router;
