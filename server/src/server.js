@@ -1,18 +1,22 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
 import { swaggerUi, swaggerSpec } from "./config/swagger.js";
-import routes from "./routes/routes.js";
+import eventsRoutes from "./routes/eventsRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(bodyParser.json());
-
+app.use(authRoutes);
+app.use(eventsRoutes);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-app.use("/api", routes);
+
 
 const PORT = process.env.PORT || 5000;
 
