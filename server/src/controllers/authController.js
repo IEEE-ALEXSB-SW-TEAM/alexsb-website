@@ -94,7 +94,7 @@ export const login = async (req, res) => {
         const user = await prisma.user.findUnique({
             where: { email },
         });
-
+        
         if (!user) {
             return res.status(404).json({ message: "User not found." });
         }
@@ -104,7 +104,7 @@ export const login = async (req, res) => {
             return res.status(401).json({ message: "Invalid email or password." });
         }
 
-        const tokens = generateTokens({ userId: user.id });
+        const tokens = generateTokens({ userId: user.user_id });
 
         res.cookie("refreshToken", tokens.refreshToken, {
             httpOnly: true,
@@ -139,7 +139,7 @@ export const refreshToken = async (req, res) => {
             if (err) return res.status(403).json({ message: "Invalid or expired refresh token" });
 
             const newAccessToken = jwt.sign(
-                { userId: decoded.userId },
+                { userId: req.user.userId },
                 ACCESS_TOKEN_SECRET,
                 { expiresIn: ACCESS_TOKEN_LIFE }
             );
