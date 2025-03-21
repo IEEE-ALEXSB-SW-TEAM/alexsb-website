@@ -1,17 +1,17 @@
 {
   "forgotPassword": {
     "subject": "🔒 Reset Your Password",
-    "text": "Hello {name},\n\nWe received a request to reset your password. Your verification code is: {code}.\n\nIf you didn't request this, please ignore this email.\n\nBest regards,\nSupport Team",
-    "html": "<p>Hello {name},</p><p>We received a request to reset your password. Your verification code is:</p><h2 style='color: #ff5733;'>{code}</h2><p>If you didn't request this, please ignore this email.</p><p>Best regards,<br>Support Team</p>"
+    "text": "Hello {name},\n\nWe received a request to reset your password. Your verification code is: {code}.\n\nIf you didn't request this, please ignore this email.\n\nBest regards,\nIEEE AlexSB",
+    "html": "<p>Hello {name},</p><p>We received a request to reset your password. Your verification code is:</p><h2 style='color: #ff5733;'>{code}</h2><p>If you didn't request this, please ignore this email.</p><p>Best regards,<br>IEEE AlexSB</p>"
   },
   "welcome": {
-    "subject": "🎉 Welcome to Our Platform!",
-    "text": "Hello {name},\n\nWe're excited to have you on board! Get ready to explore and make the most of our services.\n\nBest regards,\nThe Team",
-    "html": "<p>Hello {name},</p><p>We're excited to have you on board! Get ready to explore and make the most of our services.</p><p>Best regards,<br>The Team</p>"
+    "subject": "🎉 Welcome to IEEE AlexSB!",
+    "text": "Hello {name},\n\nWe're excited to have you on board! Stay tuned for exclusive accessto events, bootcamps, and seminars.\n\nBest regards,\nIEEE AlexSB",
+    "html": "<p>Hello {name},</p><p>We're excited to have you on board! Stay tuned for exclusive access to events, bootcamps, and seminars.</p><p>Best regards,<br>IEEE AlexSB</p>"
   },
   "eventRegistration": {
     "subject": "📅 You're Registered for {eventName}!",
-    "text": "Hello {name},\n\nGreat news! You've successfully registered for {eventName}.\n\nEvent Details:\n📅 Date: {date}\n📍 Location: {location}\n\nWe look forward to seeing you there!\n\nBest regards,\nEvent Team",
-    "html": "<p>Hello {name},</p><p>Great news! You've successfully registered for <strong>{eventName}</strong>.</p><p><strong>Event Details:</strong></p><ul><li>📅 Date: {date}</li><li>📍 Location: {location}</li></ul><p>We look forward to seeing you there!</p><p>Best regards,<br>Event Team</p>"
+    "text": "Hello {name},\n\nGreat news! You've successfully registered for {eventName}.\n\nEvent Details:\n📅 Date: {date}\n📍 Location: {location}\n\nWe look forward to seeing you there!\n\nBest regards,\nIEEE AlexSB",
+    "html": "<p>Hello {name},</p><p>Great news! You've successfully registered for <strong>{eventName}</strong>.</p><p><strong>Event Details:</strong></p><ul><li>📅 Date: {date}</li><li>📍 Location: {location}</li></ul><p>We look forward to seeing you there!</p><p>Best regards,<br>IEEE AlexSB</p>"
   }
 }
