@@ -1,4 +1,5 @@
 import { prisma } from "../config/prisma.js";
+import { sendEmail } from '../services/emailService.js';
 
 /**
  * Retrieve paginated list of events
@@ -41,17 +42,56 @@ export const getEvents = async (req, res) => {
 
 export const registerForEvent = async (req, res) => {
     const { event_id } = req.params;
-    const { user_id} = req.body;
+    const user_id = req.user.userId
     try {
+        const user = await prisma.user.findUnique({
+            where: { user_id: parseInt(user_id) },
+            select: { email: true, name: true },
+        });
+
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        const event = await prisma.event.findUnique({
+            where: { event_id: parseInt(event_id) },
+            select: { name: true, start: true},
+        });
+
+        if (!event) {
+            return res.status(404).json({ message: "Event not found" });
+        }
+
+        const existingRegistration = await prisma.registration.findUnique({
+            where: {
+                user_id_event_id: {
+                    user_id: parseInt(user_id),
+                    event_id: parseInt(event_id),
+                },
+            },
+        });
+        
+        if (existingRegistration) {
+            return res.status(409).json({ message: "User already registered for this event." });
+        }
+        
         const registration = await prisma.registration.create({
             data: {
                 user_id: parseInt(user_id),
                 event_id: parseInt(event_id),
-
             },
         });
+      
+        await sendEmail(user.email, "eventRegistration", {
+            name: user.name,
+            eventName: event.name,
+            date: event.start.toISOString().split("T")[0], 
+            location: event.location || "Not specified",   
+        });
+
         res.status(201).json(registration);
     } catch (error) {
-        res.status(500).json({ message: "Failed to register for event", error: error });
+        console.error("Registration Error:", error);
+        res.status(500).json({ message: "Failed to register for event", error: error.message });
     }
 };
