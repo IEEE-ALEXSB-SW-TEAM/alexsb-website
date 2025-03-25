@@ -80,6 +80,7 @@
               date={event.start}
               briefDescription={event.brief}
               longDescription={event.description}
+              deadline={event.deadline}
             />
             </div>
           ))}

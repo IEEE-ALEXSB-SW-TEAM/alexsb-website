@@ -66,3 +66,26 @@
 .event-card:hover .event-info {
   opacity: 0;
 }
+
+.register-button {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, opacity 0.3s;
+  opacity: 0;
+}
+
+.event-card:hover .register-button {
+  opacity: 1;
+}
+
+.register-button:hover {
+  background: #0056b3;
+}
